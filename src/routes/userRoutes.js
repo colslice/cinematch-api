@@ -11,7 +11,7 @@ router.put('/:id/services', updateServices);
 // Genres
 router.get('/:id/genres', getGenres);
 router.put('/:id/genres', updateGenres);
-router.post('/:id/genres', addGenre);
-router.delete('/:id/genres', removeGenre);
+router.post('/:id/genres/add', addGenre);
+router.delete('/:id/genres/remove', removeGenre);
 
 module.exports = router;
