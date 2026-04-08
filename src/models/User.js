@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   Services: { type: [String], default: [] },
   FavGenre: { type: [String], default: [] },
   NewUser: { type: Boolean, default: true },
-  EmailVerified { type: Boolean, default: false }
+  EmailVerified: { type: Boolean, default: false }
 }, { 
   collection: 'Users',
   versionKey: false
