@@ -16,7 +16,7 @@ exports.signup = async (req, res) => {
       Password,
       Services: [],
       FavGenre: [],
-      NewUser: 1
+      NewUser: true
     });
 
     res.status(201).json({
