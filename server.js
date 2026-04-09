@@ -7,7 +7,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
 const watchlistRoutes = require('./src/routes/watchlistRoutes');
-
+const recommendRoutes = require('./src/routes/recommendRoutes');
 const app = express();
 
 // Middleware
@@ -15,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // Mount Routes
+app.use('/api/recommend', recommendRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/reviews', reviewRoutes);
