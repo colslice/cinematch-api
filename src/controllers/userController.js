@@ -95,3 +95,26 @@ exports.removeGenre = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.toggleField = async (req, res) => {
+  try {
+    const { id, field } = req.params;
+    const allowedFields = ['NewUser', 'EmailVerified'];
+
+    if (!allowedFields.includes(field)) {
+      return res.status(400).json({ error: 'Invalid field to toggle' });
+    }
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    user[field] = !user[field];
+    await user.save();
+
+    res.json({ [field]: user[field] });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
